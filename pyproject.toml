@@ -1,0 +1,53 @@
+[project]
+name = "technical-notes-api"
+version = "2.0.0"
+description = "FastAPI backend for a scalable React technical notes/cookbook reader."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115.0",
+  "uvicorn[standard]>=0.30.0",
+  "gunicorn>=22.0.0",
+  "SQLAlchemy[asyncio]>=2.0.30",
+  "asyncpg>=0.29.0",
+  "psycopg[binary]>=3.2.0",
+  "alembic>=1.13.0",
+  "pydantic>=2.8.0",
+  "pydantic-settings>=2.4.0",
+  "python-dotenv>=1.0.1",
+  "orjson>=3.10.0",
+  "redis>=5.0.0",
+  "structlog>=24.1.0",
+  "email-validator>=2.2.0",
+  "python-multipart>=0.0.9",
+]
+
+[dependency-groups]
+dev = [
+  "pytest>=8.2.0",
+  "pytest-asyncio>=0.23.0",
+  "httpx>=0.27.0",
+  "ruff>=0.5.0",
+  "mypy>=1.10.0"
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["B008"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.12"
+plugins = []
+strict = false
+warn_unused_configs = true

@@ -1,0 +1,11 @@
+{
+  "id": "fastapi-production-backend",
+  "title": "FastAPI Production Backend",
+  "summary": "A sample topic shaped like the current React frontend data model.",
+  "group": "FastAPI",
+  "domain": "Backend APIs",
+  "tags": ["fastapi", "postgres", "backend"],
+  "sourceFiles": ["manual-admin-seed"],
+  "order_index": 1,
+  "content": "# FastAPI Production Backend\n\n## Why FastAPI\n\nFastAPI gives you a typed API layer with OpenAPI support.\n\n## Database\n\nUse Postgres with async SQLAlchemy for scalable reads and writes."
+}

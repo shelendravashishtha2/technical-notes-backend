@@ -1,0 +1,5 @@
+-- Optional Neon notes
+-- 1. Use pooled connection string for the Render runtime.
+-- 2. Use direct connection string for Alembic migrations if Neon recommends it for your project.
+-- 3. Keep DATABASE_URL private and never expose it to frontend code.
+-- 4. Do not open Postgres to client browsers. Frontend talks only to this FastAPI API.

@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: technical-notes-api
+    runtime: python
+    plan: free
+    buildCommand: pip install uv && uv sync --no-dev
+    startCommand: uv run gunicorn app.main:app -k uvicorn.workers.UvicornWorker -w 2 --bind 0.0.0.0:$PORT --timeout 120
+    healthCheckPath: /api/v1/health/live
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: false
+      - key: DATABASE_URL
+        sync: false
+      - key: ALEMBIC_DATABASE_URL
+        sync: false
+      - key: ADMIN_TOKEN
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: TRUSTED_HOSTS
+        sync: false
+      - key: BOOTSTRAP_TOPIC_LIMIT
+        value: 500
