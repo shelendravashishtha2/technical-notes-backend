@@ -1,0 +1,14 @@
+Technical Notes Seed Anchor Fix Report
+======================================
+Source: technical_notes_deep_seed_chunk_v1.json
+Fixed JSON: technical_notes_deep_seed_chunk_v1_fixed_no_html_anchors.json
+Removed anchor tags: 168
+Remaining literal HTML anchor tags in fixed JSON: 0
+
+Root cause:
+The original seed put HTML anchor tags directly inside markdown headings, e.g.
+  ## <a id="topic__section"></a>Hosted Zones
+Your markdown renderer escapes/sanitizes raw HTML, so the literal tag became visible in the UI.
+
+Fix:
+Removed inline anchor tags from markdown. The backend already has a proper section.anchor field, so the frontend should put that value on the rendered DOM section/heading id.
